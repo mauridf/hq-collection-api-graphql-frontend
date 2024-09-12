@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Frontend Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+Este é o frontend de uma aplicação que utiliza React com Apollo Client para interagir com uma API GraphQL. O projeto inclui funcionalidades para cadastrar, editar e listar personagens, utilizando Material-UI para estilização.
 
-In the project directory, you can run:
+## Estrutura do Projeto
 
-### `npm start`
+- **src/**
+  - **components/**: Componentes reutilizáveis como `Table`, `PersonagemCadastro`, `PersonagemAlteracao`, etc.
+  - **pages/**: Páginas principais da aplicação, como `Personagens`, `PersonagemCadastro`, `PersonagemAlteracao`, etc.
+  - **App.js**: Configuração das rotas e componente principal da aplicação.
+  - **index.js**: Ponto de entrada da aplicação React.
+  - **graphql/**: Definições de queries e mutations GraphQL.
+  - **styles/**: Arquivos de estilos globais.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependências
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- @apollo/client
+- graphql
+- @mui/material
+- @emotion/react
+- @emotion/styled
+- react-router-dom
 
-### `npm test`
+## Configuração
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Instalação das Dependências**
 
-### `npm run build`
+   Execute o seguinte comando para instalar todas as dependências do projeto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Configuração do Apollo Client**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Certifique-se de configurar o Apollo Client corretamente com a URL da API GraphQL.
 
-### `npm run eject`
+    Execução da Aplicação
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Para iniciar o servidor de desenvolvimento, execute:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    A aplicação será aberta em http://localhost:3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Rotas
 
-## Learn More
+    /personagens: Lista todos os personagens.
+    /personagem/cadastro: Página para cadastrar um novo personagem.
+    /personagem/alteracao/:id: Página para editar um personagem existente, baseado no id fornecido.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Funcionalidades
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Cadastro de Personagem: Permite adicionar novos personagens com nome e tipo.
+    Edição de Personagem: Permite editar os detalhes de um personagem existente.
+    Listagem de Personagens: Exibe uma tabela com todos os personagens cadastrados.
+    Exclusão de Personagem: Permite excluir um personagem com confirmação.
 
-### Code Splitting
+## Observações
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    Certifique-se de que a API GraphQL está funcionando e acessível no endpoint configurado.
+    A aplicação foi testada em ambiente de desenvolvimento, podendo haver ajustes necessários para produção.
 
-### Analyzing the Bundle Size
+## Contribuição
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Se você deseja contribuir para este projeto, por favor, envie um pull request ou abra uma issue com sugestões ou correções.
