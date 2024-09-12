@@ -1,44 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, TextField, Typography, Box } from '@mui/material';
-
-// Query para obter a editora pelo ID
-const GET_EDITORA = gql`
-    query GetEditoraById($id: UUID!) {
-        editoraById(id: $id) {
-            id
-            nome
-            logotipo
-        }
-    }
-`;
-
-// Mutation para atualizar a editora
-const UPDATE_EDITORA = gql`
-    mutation UpdateEditora($id: UUID!, $nome: String!, $logotipo: String) {
-        updateEditora(id: $id, nome: $nome, logotipo: $logotipo) {
-            id
-            nome
-            logotipo
-        }
-    }
-`;
-
-const GET_EDITORAS = gql`
-    query {
-        allEditoras {
-            id
-            nome
-            logotipo
-        }
-    }
-`;
+import { GET_EDITORAS, GET_EDITORA_BY_ID } from '../graphql/queries';
+import { UPDATE_EDITORA } from '../graphql/mutations';
 
 const EditoraAlteracao = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { data, loading, error } = useQuery(GET_EDITORA, { variables: { id } });
+    const { data, loading, error } = useQuery(GET_EDITORA_BY_ID, { variables: { id } });
     const [updateEditora] = useMutation(UPDATE_EDITORA, {
         refetchQueries: [{ query: GET_EDITORAS }],
     });

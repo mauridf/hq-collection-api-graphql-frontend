@@ -1,26 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import TableComponent from '../components/Table';
 import { Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
-// Query para obter todas as editoras
-const GET_EDITORAS = gql`
-    query {
-        allEditoras {
-            id
-            nome
-            logotipo
-        }
-    }
-`;
-
-// Mutation para deletar uma editora
-const DELETE_EDITORA = gql`
-    mutation DeleteEditora($id: UUID!) {
-        deleteEditora(id: $id)
-    }
-`;
+import { GET_EDITORAS } from '../graphql/queries';
+import { DELETE_EDITORA } from '../graphql/mutations';
 
 const Editoras = () => {
     const { loading, error, data, refetch } = useQuery(GET_EDITORAS);

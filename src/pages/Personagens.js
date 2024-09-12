@@ -1,26 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import TableComponent from '../components/Table';
 import { Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
-// Query para obter todas os personagens
-const GET_PERSONAGENS = gql`
-    query {
-        allPersonagens {
-            id
-            nome
-            tipo
-        }
-    }
-`;
-
-// Mutation para deletar um personagem
-const DELETE_PERSONAGEM = gql`
-    mutation DeletePersonagem($id: UUID!) {
-        deletePersonagem(id: $id)
-    }
-`;
+import { GET_PERSONAGENS } from '../graphql/queries';
+import { DELETE_PERSONAGEM } from '../graphql/mutations';
 
 const Personagens = () => {
     const { loading, error, data, refetch } = useQuery(GET_PERSONAGENS);

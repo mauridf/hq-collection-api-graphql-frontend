@@ -1,28 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
-import { useMutation, gql } from '@apollo/client';
-
-// Defina a mutação GraphQL para criar um personagem
-const CREATE_PERSONAGEM = gql`
-    mutation CreatePersonagem($nome: String!, $tipo: TipoPersonagem!) {
-        createPersonagem(nome: $nome, tipo: $tipo) {
-            id
-            nome
-            tipo
-        }
-    }
-`;
-
-const GET_PERSONAGENS = gql`
-    query {
-        allPersonagens {
-            id
-            nome
-            tipo
-        }
-    }
-`;
+import { useMutation } from '@apollo/client';
+import { GET_PERSONAGENS } from '../graphql/queries';
+import { CREATE_PERSONAGEM } from '../graphql/mutations';
 
 // Enum de tipos de personagens
 const TIPOS_PERSONAGEM = [

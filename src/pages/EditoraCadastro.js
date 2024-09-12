@@ -1,28 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import { useMutation, gql } from '@apollo/client';
-
-// Defina a mutação GraphQL
-const CREATE_EDITORA = gql`
-    mutation CreateEditora($nome: String!, $logotipo: String) {
-        createEditora(nome: $nome, logotipo: $logotipo) {
-            id
-            nome
-            logotipo
-        }
-    }
-`;
-
-const GET_EDITORAS = gql`
-    query {
-        allEditoras {
-            id
-            nome
-            logotipo
-        }
-    }
-`;
+import { useMutation } from '@apollo/client';
+import { GET_EDITORAS } from '../graphql/queries';
+import { CREATE_EDITORA } from '../graphql/mutations';
 
 const EditoraCadastro = () => {
     const navigate = useNavigate();

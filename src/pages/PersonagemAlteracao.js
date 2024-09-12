@@ -1,42 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, TextField, Typography, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { GET_PERSONAGENS, GET_PERSONAGEM_BY_ID } from '../graphql/queries';
+import { UPDATE_PERSONAGEM } from '../graphql/mutations';
 
-// Query para obter o personagem pelo ID
-const GET_PERSONAGEM = gql`
-    query GetPersonagemById($id: UUID!) {
-        personagemById(id: $id) {
-            id
-            nome
-            tipo
-        }
-    }
-`;
-
-// Mutation para atualizar o personagem
-const UPDATE_PERSONAGEM = gql`
-    mutation UpdatePersonagem($id: UUID!, $nome: String!, $tipo: TipoPersonagem!) {
-        updatePersonagem(id: $id, nome: $nome, tipo: $tipo) {
-            id
-            nome
-            tipo
-        }
-    }
-`;
-
-// Query para obter a lista de personagens
-const GET_PERSONAGENS = gql`
-    query {
-        allPersonagens {
-            id
-            nome
-            tipo
-        }
-    }
-`;
-
-// Enum de tipos de personagens
 const TIPOS_PERSONAGEM = [
     { value: 'HEROI', label: 'Herói' },
     { value: 'ANTI_HEROI', label: 'Anti-Herói' },
@@ -52,7 +20,7 @@ const TIPOS_PERSONAGEM = [
 const PersonagemAlteracao = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { data, loading, error } = useQuery(GET_PERSONAGEM, { variables: { id } });
+    const { data, loading, error } = useQuery(GET_PERSONAGEM_BY_ID, { variables: { id } });
     const [updatePersonagem] = useMutation(UPDATE_PERSONAGEM, {
         refetchQueries: [{ query: GET_PERSONAGENS }],
     });

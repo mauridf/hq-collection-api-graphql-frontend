@@ -11,8 +11,7 @@ Este é o frontend de uma aplicação que utiliza React com Apollo Client para i
   - **pages/**: Páginas principais da aplicação, como `Personagens`, `PersonagemCadastro`, `PersonagemAlteracao`, etc.
   - **App.js**: Configuração das rotas e componente principal da aplicação.
   - **index.js**: Ponto de entrada da aplicação React.
-  - **graphql/**: Definições de queries e mutations GraphQL.
-  - **styles/**: Arquivos de estilos globais.
+  - **apollo/**: Definições e Configurações de queries e mutations GraphQL.
 
 ## Dependências
 
@@ -46,18 +45,11 @@ Este é o frontend de uma aplicação que utiliza React com Apollo Client para i
 
     A aplicação será aberta em http://localhost:3000.
 
-## Rotas
-
-    /personagens: Lista todos os personagens.
-    /personagem/cadastro: Página para cadastrar um novo personagem.
-    /personagem/alteracao/:id: Página para editar um personagem existente, baseado no id fornecido.
-
 ## Funcionalidades
 
-    Cadastro de Personagem: Permite adicionar novos personagens com nome e tipo.
-    Edição de Personagem: Permite editar os detalhes de um personagem existente.
-    Listagem de Personagens: Exibe uma tabela com todos os personagens cadastrados.
-    Exclusão de Personagem: Permite excluir um personagem com confirmação.
+    Cadastro de Editoras, Personagens e HQs.
+    Edição de Editoras, Personagens e HQs.
+    Exclusão de Editoras, Personagens e HQs.
 
 ## Observações
 
