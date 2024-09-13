@@ -56,11 +56,13 @@ const TableComponent = ({ columns, data = [], onEdit, onDelete }) => {
                     <TableBody>
                         {filteredData.length > 0 ? (
                             filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <TableRow key={row.id}>
+                                <TableRow key={row.id}> {/* Certifique-se de que row.id seja único */}
                                     {columns.map((column) => (
-                                        <TableCell key={column.id}>{row[column.id] || '-'}</TableCell>
+                                        <TableCell key={`${row.id}-${column.id}`}> {/* Use uma combinação de row.id e column.id como key */}
+                                            {row[column.id] || '-'}
+                                        </TableCell>
                                     ))}
-                                    <TableCell>
+                                    <TableCell key={`${row.id}-actions`}> {/* Key única para a célula de ações */}
                                         <Tooltip title="Editar">
                                             <IconButton color="primary" onClick={() => onEdit(row.id)}>
                                                 <EditIcon />

@@ -7,7 +7,7 @@ import { GET_HQS } from '../apollo/queries';
 import { DELETE_HQ } from '../apollo/mutations';
 
 const Hqs = () => {
-    const { loading, error, data, refetch } = useQuery(GET_HQS);
+    const { loading, error, data } = useQuery(GET_HQS);
     const [deleteHq] = useMutation(DELETE_HQ);
     const [hqs, setHqs] = useState([]);
     const navigate = useNavigate();
@@ -25,10 +25,10 @@ const Hqs = () => {
     }
 
     const columns = [
-        { id: 'titulo', label: 'Titulo' },
-        { id: 'tituloOriginal', label: 'Titulo Original' },
+        { id: 'titulo', label: 'Título' },
+        { id: 'tituloOriginal', label: 'Título Original' },
         { id: 'totalEdicoes', label: 'Total de Edições' },
-        { id: 'status: status', label: 'Status' },
+        { id: 'status', label: 'Status' }, // Corrigido para 'status'
         { id: 'observacao', label: 'Observação' },
         { id: 'categoria', label: 'Categoria' },
         { id: 'anoLancamento', label: 'Ano de Lançamento' }
@@ -43,11 +43,12 @@ const Hqs = () => {
         if (confirmed) {
             try {
                 const { data } = await deleteHq({ variables: { id } });
-                if (data.deleteHq) {
+                
+                if (data?.deleteHq) {
                     alert('Registro deletado com sucesso!');
                     
                     // Atualiza a tabela manualmente removendo o registro deletado
-                    setHqs((prevHqs) => prevHqs.filter(hq => hq.id !== id));
+                    setHqs((prevHqs) => prevHqs.filter((hq) => hq.id !== id));
                 } else {
                     alert('Erro ao deletar o registro.');
                 }
@@ -56,7 +57,7 @@ const Hqs = () => {
                 alert('Ocorreu um erro ao tentar deletar o registro.');
             }
         }
-    };    
+    };
 
     const handleNew = () => {
         navigate('/hq-cadastro');
