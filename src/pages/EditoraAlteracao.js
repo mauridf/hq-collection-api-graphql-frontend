@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, TextField, Typography, Box } from '@mui/material';
-import { GET_EDITORAS, GET_EDITORA_BY_ID } from '../graphql/queries';
-import { UPDATE_EDITORA } from '../graphql/mutations';
+import { GET_EDITORAS, GET_EDITORA_BY_ID } from '../apollo/queries';
+import { UPDATE_EDITORA } from '../apollo/mutations';
 
 const EditoraAlteracao = () => {
     const { id } = useParams();

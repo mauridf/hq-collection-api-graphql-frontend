@@ -43,3 +43,83 @@ export const GET_PERSONAGEM_BY_ID = gql`
         }
     }
 `;
+
+// Query para obter todas as hqs
+export const GET_HQS = gql`
+    query {
+        allHQs {
+            id
+            titulo
+            tituloOriginal
+            totalEdicoes
+            status: status
+            observacao
+            categoria
+            anoLancamento
+        }
+    }
+`;
+
+// Query para obter a hq pelo ID
+export const GET_HQ_BY_ID = gql`
+    query GetEditoraById($id: UUID!) {
+        hqById(id: $id) {
+            id
+            titulo
+            tituloOriginal
+            totalEdicoes
+            status: status
+            observacao
+            categoria
+            anoLancamento
+        }
+    }
+`;
+
+// Query para obter todas as edicoes
+export const GET_EDICOES = gql`
+    query {
+        allEdicoes {
+            id
+            numero
+            titulo
+            tituloOriginal
+            idioma
+            sinopse
+            capa
+            hqId
+        }
+    }
+`;
+
+// Query para obter a hq pelo ID
+export const GET_EDICAO_BY_ID = gql`
+    query GetEdicaoById($id: UUID!) {
+        edicaoById(id: $id) {
+            id
+            numero
+            titulo
+            tituloOriginal
+            idioma
+            sinopse
+            capa
+            hqId
+        }
+    }
+`;
+
+// Query para obter as edições por HQ
+export const GET_EDICOES_BY_HQ = gql`
+    query GetEdicoesPorHQ($hqId: UUID!) {
+        edicoesPorHQ(hqId: $hqId) {
+            id
+            numero
+            titulo
+            tituloOriginal
+            idioma
+            sinopse
+            capa
+            hqId
+        }
+    }
+`;

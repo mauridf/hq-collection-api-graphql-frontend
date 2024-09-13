@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { useMutation } from '@apollo/client';
-import { GET_PERSONAGENS } from '../graphql/queries';
-import { CREATE_PERSONAGEM } from '../graphql/mutations';
+import { GET_PERSONAGENS } from '../apollo/queries';
+import { CREATE_PERSONAGEM } from '../apollo/mutations';
 
 // Enum de tipos de personagens
 const TIPOS_PERSONAGEM = [

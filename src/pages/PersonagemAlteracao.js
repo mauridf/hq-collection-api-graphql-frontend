@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, TextField, Typography, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import { GET_PERSONAGENS, GET_PERSONAGEM_BY_ID } from '../graphql/queries';
-import { UPDATE_PERSONAGEM } from '../graphql/mutations';
+import { GET_PERSONAGENS, GET_PERSONAGEM_BY_ID } from '../apollo/queries';
+import { UPDATE_PERSONAGEM } from '../apollo/mutations';
 
 const TIPOS_PERSONAGEM = [
     { value: 'HEROI', label: 'Herói' },

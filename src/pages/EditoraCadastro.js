@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import { useMutation } from '@apollo/client';
-import { GET_EDITORAS } from '../graphql/queries';
-import { CREATE_EDITORA } from '../graphql/mutations';
+import { GET_EDITORAS } from '../apollo/queries';
+import { CREATE_EDITORA } from '../apollo/mutations';
 
 const EditoraCadastro = () => {
     const navigate = useNavigate();
